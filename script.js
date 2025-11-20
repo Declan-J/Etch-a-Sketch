@@ -5,8 +5,29 @@ CREATE A 16x16 grid of square divs using JS ONLY!
 
 const container = document.querySelector("#container");
 
-const div = document.createElement("div");
-const tempText = document.createTextNode("Nice, Div!");
+//create all divs
+for (let i=0; i<16; i++) {
+    const div = document.createElement("div");
+    div.style.border = "1px, solid, black";
+    div.style.height = "10px";
+    div.style.width = "40px";
 
-div.appendChild(tempText);
-container.appendChild(div);
+    
+
+    container.appendChild(div);
+}
+
+
+/*
+For each div
+
+Apply style to div to make it appear in a grid.
+
+    border
+    width
+    height
+
+    display flex 
+    justify content
+    flex row, wrap
+*/
