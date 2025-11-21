@@ -14,13 +14,9 @@ body {
     height: 960px;
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 .grid-cell {
     border: 1px solid black;
-    height: auto;
-    width: auto;
-    /* aspect-ratio: 1/1; */
-    flex-grow: 1;
-    flex-shrink: 1;
 }
