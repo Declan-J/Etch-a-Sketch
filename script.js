@@ -1,8 +1,13 @@
+//Used to draw when clicking or holding left mouse button
+let isDrawing = false;
+
 //Set up the container of the grid
 const container = document.querySelector(".container");
 
-//Used to draw when clicking or holding left mouse button
-let isDrawing = false;
+//Prevent drawing from sticking when leaving the grid container
+container.addEventListener('mouseleave', ((e) => {
+    isDrawing = false;
+}))
 
 //Variable number of squares per row
 let girdSize = 16;
