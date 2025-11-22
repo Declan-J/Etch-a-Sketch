@@ -23,14 +23,31 @@ let girdSize = 16;
 createGrid(girdSize);
 
 function changeColor(mouseEvent, color) {
-    const buttonUsed = isDrawing ? activeMouseButton :mouseEvent.button;
+    const buttonUsed = isDrawing ? activeMouseButton : mouseEvent.button;
 
-    if(buttonUsed == 0) {
-        mouseEvent.currentTarget.style.backgroundColor = `${color}`;
+    //short-hand for grid cell reference
+    cell = mouseEvent.currentTarget;
+
+    if (buttonUsed == 0) {
+        if (cell.style.backgroundColor != `${color}`) {
+            cell.style.backgroundColor = `${color}`;
+            cell.style.opacity = 0.1;
+        }
+        else if (cell.style.opacity != 1.0) {
+            cell.style.opacity = Number(cell.style.opacity) + 0.1;
+        }
     }
     else if (buttonUsed == 2) {
-        getRandomColor()
-        mouseEvent.currentTarget.style.backgroundColor = `rgb(${r},${g},${b})`
+        if (cell.style.backgroundColor == "") {
+            getRandomColor()
+            cell.style.backgroundColor = `rgb(${r},${g},${b})`;
+            cell.style.opacity = 0.1;
+        }
+        else {
+            if (cell.style.opacity != 1.0) {
+                cell.style.opacity = Number(cell.style.opacity) + 0.1;
+            }
+        }
     }
 };
 
@@ -46,6 +63,7 @@ function resetGrid() {
     const allGridCells = document.querySelectorAll(".grid-cell");
     allGridCells.forEach(cell => {
         cell.style.backgroundColor = "";
+        cell.style.opacity = "";
     });
     isDrawing = false;
 }
