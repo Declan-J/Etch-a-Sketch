@@ -1,22 +1,45 @@
 //Used to draw when clicking or holding left mouse button
 let isDrawing = false;
 
+let activeMouseButton = 0;
+
 //Set up the container of the grid
 const container = document.querySelector(".container");
 
+let cellColor = "skyblue";
+
+//Prevent right-click context menu in grid
+container.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+});
 //Prevent drawing from sticking when leaving the grid container
 container.addEventListener('mouseleave', ((e) => {
     isDrawing = false;
-}))
+    activeMouseButton = 0;
+}));
 
 //Variable number of squares per row
 let girdSize = 16;
 createGrid(girdSize);
 
 function changeColor(mouseEvent, color) {
-    if (mouseEvent.button == 0) {
-        mouseEvent.currentTarget.style.backgroundColor = `${color}`
+    const buttonUsed = isDrawing ? activeMouseButton :mouseEvent.button;
+
+    if(buttonUsed == 0) {
+        mouseEvent.currentTarget.style.backgroundColor = `${color}`;
     }
+    else if (buttonUsed == 2) {
+        getRandomColor()
+        mouseEvent.currentTarget.style.backgroundColor = `rgb(${r},${g},${b})`
+    }
+};
+
+//Generate Random RGB value between 0-255
+let r, g, b = 0;
+function getRandomColor() {
+    r = Math.floor(Math.random() * 256);
+    g = Math.floor(Math.random() * 256);
+    b = Math.floor(Math.random() * 256);
 }
 
 function resetGrid() {
@@ -58,17 +81,19 @@ function createGrid(girdSize) {
 
         div.addEventListener('mousedown', (e) => {
             isDrawing = true;
-            changeColor(e, "gray");
+            activeMouseButton = e.button;
+            changeColor(e, `${cellColor}`);
         });
 
         div.addEventListener('mousemove', (e) => {
             if (isDrawing) {
-                changeColor(e, "gray");
+                changeColor(e, `${cellColor}`);
             }
         });
 
         div.addEventListener('mouseup', () => {
             isDrawing = false;
+            activeMouseButton = 0;
         })
 
         //Add grid class to new elements 
