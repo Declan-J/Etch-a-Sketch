@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
     <script src="script.js" defer></script>
-    <link href="./styles.css" rel="stylesheet">
-</head>
-<body>
-    <button type="button" onclick="createNewGrid()">Create New Grid</button>
-    <button type="button" onclick="resetGrid()">Reset Grid</button>
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div id="controls">
+        <button type="button" onclick="createNewGrid()">Create New Grid</button>
+        <button type="button" onclick="resetGrid()">Reset Grid</button>
+      </div>
+      <div id="instructions">
+        <p>
+          Hold Left-click on grid to draw with chosen colour.<br />
+          Hold Right-click to draw with rainbow colours.<br />
+          Click and Drag mouse while inside the grid to keep drawing!<br />
+        </p>
+      </div>
+      <div id="changeColour">
+        <label for="pencilColour">Choose a colour:</label><br />
+        <select name="pencilColour" id="pencilColour">
+          <option value="volvo">Red</option>
+          <option value="saab">Blue</option>
+          <option value="mercedes">Yellow</option>
+          <option value="audi">Green</option>
+          <option value="audi">Sky Blue</option>
+          <option value="audi">Purple</option>
+        </select>
+      </div>
+    </header>
     <div class="container"></div>
-
-</body>
+  </body>
 </html>
