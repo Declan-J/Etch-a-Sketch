@@ -3,6 +3,7 @@
 An interactive drawing grid built with JavaScript, inspired by the classic Etch-a-sketch toy.
 
 ![Etch-a-sketch screenshot 1](./images/etch-a-sketch_screenshot1.png)
+![Etch-a-sketch screenshot 2](./images/etch-a-sketch_screenshot2.png)
 
 ## Description
 This project was completed as part of The Odin Project to practice dynamic DOM manipulation, variable grid generation, and user interaction through event listeners.
