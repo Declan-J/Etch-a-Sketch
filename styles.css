@@ -13,13 +13,21 @@ body {
 
 header {
     display: flex;
-    width: 790px;
+    width: 780px;
     margin-bottom: 8px;
+    align-items: center;
 }
 
-header > div {
-    flex: auto;
+#controls, #instructions, #changeColour {
+    flex: 1;
 }
+
+#controls, #changeColour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 button {
     padding: 1px 6px;
