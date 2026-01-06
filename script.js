@@ -1,12 +1,20 @@
 //Used to draw when clicking or holding left mouse button
 let isDrawing = false;
 
+//Flag registering if mouse click is held down
 let activeMouseButton = 0;
 
 //Set up the container of the grid
 const container = document.querySelector(".container");
 
-let cellColor = "skyblue";
+const colorSelector = document.querySelector("#pencilColour")
+
+
+let cellColor = "red";
+
+colorSelector.addEventListener("change", (e) => {
+    cellColor = e.target.value;
+})
 
 //Prevent right-click context menu in grid
 container.addEventListener("contextmenu", (e) => {
@@ -26,7 +34,7 @@ function changeColor(mouseEvent, color) {
     const buttonUsed = isDrawing ? activeMouseButton : mouseEvent.button;
 
     //short-hand for grid cell reference
-    cell = mouseEvent.currentTarget;
+    const cell = mouseEvent.currentTarget;
 
     if (buttonUsed == 0) {
         if (cell.style.backgroundColor != `${color}`) {
