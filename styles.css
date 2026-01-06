@@ -13,8 +13,10 @@ body {
 
 header {
     display: flex;
-    width: 780px;
-    margin-bottom: 8px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 780px;
+    gap: 10px;
     align-items: center;
 }
 
@@ -36,8 +38,8 @@ button {
 
 .container {
     border: 1px solid black;
-    width: 780px;
-    height: 780px;
+    width: min(90vw, 780px);
+    height: min(90vw, 780px);
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
